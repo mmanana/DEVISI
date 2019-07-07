@@ -1,0 +1,31 @@
+caso001
+
+v0 a 0 $uab$
+c1 a g 12e-6 IC=0
+r1 l i $r1$
+r2 k c 100
+r3 c j $r3$
+r4 f 0 1000
+r5 c e 1e6
+r6 g h 1e-6
+v2 h 0 0
+v3 i 0 0
+v5 j 0 0
+v6 e f 0
+v4 l k 0
+v1 a l 0
+.dc v0 $uab$ $uab$ 1
+
+.control
+set filetype=ascii
+set units = degrees
+run
+* display
+* plot v(a) v(c) v(a,c)
+* plot v6#branch v5#branch v4#branch v3#branch v2#branch v1#branch -v0#branch
+* print 
+write $fsalida$ $sal1$
+
+.endc
+
+.end
